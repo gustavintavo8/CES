@@ -1,0 +1,4 @@
+Punto nominal práctica 6: 150
+Punto nominal * 6: 900
+
+Tiempo respuesta : 0,094775894

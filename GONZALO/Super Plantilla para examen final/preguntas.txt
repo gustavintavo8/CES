@@ -1,0 +1,97 @@
+    ¿Qué bibliotecas se utilizan en este código fuente?
+        Windows.h
+        iostream
+        math.h
+        time.h
+        stdio.h
+        stdlib.h
+        fstream
+
+    ¿Cuál es el propósito de este código fuente?
+    El propósito de este código es simular un inyector de peticiones a un servidor. Crea múltiples hilos que actúan como usuarios y realizan solicitudes a un servidor a través de sockets.
+
+    ¿Cuál es el significado de las constantes definidas en el código fuente?
+        MAXPETICIONES: Define el número máximo de peticiones que puede hacer un usuario.
+        MAXUSUARIOS: Define el número máximo de usuarios que se van a simular.
+        PUERTO: Define el número de puerto utilizado para la conexión con el servidor.
+        TAM_PET: Define el tamaño máximo de una petición.
+        TAM_RES: Define el tamaño máximo de una respuesta.
+
+    ¿Qué variables globales se utilizan en este código fuente?
+        tReflex: Tiempo de reflexión en segundos.
+        ipServidor: Dirección IP del servidor.
+        numUsuarios: Número de usuarios a simular.
+        numPeticiones: Número de peticiones a realizar por cada usuario.
+        ticksPorMilisegundo: Valor para convertir ticks en milisegundos.
+        tickBase: Instante de referencia para los ticks.
+        tickInicio: Instante en el que se inician las pruebas.
+        tickFin: Instante en el que se terminan las pruebas.
+        datoHilo: Arreglo de estructuras que almacena los datos de cada hilo/usuario.
+
+    ¿Qué función se utiliza para obtener el tiempo transcurrido en milisegundos?
+    La función utilizada es "MilisegundosTranscurridos(LARGE_INTEGER inicio, LARGE_INTEGER final)".
+
+    ¿Cuál es la función utilizada para generar un número aleatorio en un rango específico?
+    La función utilizada es "NumeroAleatorio(float limiteInferior, float limiteSuperior)".
+
+    ¿Cuál es la función utilizada para generar una distribución exponencial basada en un valor medio?
+    La función utilizada es "DistribucionExponencial(float media)".
+
+    ¿Qué hace la función "Usuario(LPVOID parametro)"?
+    La función "Usuario" es una función de hilo que simula el comportamiento de un usuario. Crea un socket, establece una conexión con el servidor, envía una solicitud, recibe una respuesta y registra los tiempos de inicio y fin de la solicitud.
+
+    ¿Cuál es el propósito de la función "Ini_sockets()"?
+    La función "Ini_sockets()" se utiliza para inicializar la biblioteca de sockets.
+
+    ¿Cuál es el propósito de la función "Fin_sockets()"?
+    La función "Fin_sockets()" se utiliza para liberar los recursos utilizados por la biblioteca de sockets.
+
+    ¿Cuál es el significado de las variables "segCal" y "segMed" en la función "main()"?
+        "segCal" representa los segundos de calentamiento, es decir, el tiempo en el que el sistema se "calienta" antes de comenzar la medición.
+        "segMed" representa los segundos de medición, es el tiempo durante el cual se recopilan los datos.
+
+User
+continua
+ChatGPT
+
+de rendimiento del sistema.
+
+    ¿Cuál es el propósito de la variable "hilo" en la función "main()"?
+    La variable "hilo" se utiliza para almacenar el identificador de un hilo en el sistema operativo. Se utiliza para crear y controlar los hilos que simulan los usuarios en el programa.
+
+    ¿Qué hace la función "main()" en este código fuente?
+    La función "main()" es la función principal del programa. Realiza las siguientes acciones:
+        Inicializa las variables y estructuras necesarias.
+        Establece la dirección IP del servidor.
+        Inicializa la biblioteca de sockets.
+        Abre un archivo para escribir los resultados.
+        Mide el tiempo de referencia utilizando ticks.
+        Realiza el tiempo de calentamiento.
+        Inicia los hilos que simulan los usuarios.
+        Espera a que los hilos finalicen su ejecución.
+        Calcula el tiempo total de ejecución.
+        Escribe los resultados en el archivo.
+        Cierra el archivo y libera los recursos utilizados.
+
+    ¿Cuál es el significado de las variables "tickInicio" y "tickFin" en la función "main()"?
+        "tickInicio" representa el instante de tiempo en el que se inician las pruebas de rendimiento.
+        "tickFin" representa el instante de tiempo en el que se terminan las pruebas de rendimiento.
+
+    ¿Qué información se escribe en el archivo de resultados en la función "main()"?
+    En el archivo de resultados se escriben los siguientes datos para cada usuario:
+        ID del usuario.
+        Tiempo de inicio de la solicitud.
+        Tiempo de fin de la solicitud.
+        Tiempo transcurrido en milisegundos.
+
+    ¿Qué se hace con la variable "datoHilo" después de la creación de los hilos en la función "main()"?
+    Después de la creación de los hilos, la variable "datoHilo" ya no se utiliza en la función "main()". Cada hilo tiene su propia copia de la estructura de datos correspondiente.
+
+    ¿Qué se hace con la variable "hilo" después de la creación de los hilos en la función "main()"?
+    Después de la creación de los hilos, la variable "hilo" no se utiliza más en la función "main()". Cada hilo tiene su propio identificador almacenado en la estructura de datos correspondiente.
+
+    ¿Cuál es el propósito de las funciones "ticksPorSegundo()" y "ticksPorMilisegundo()"?
+        La función "ticksPorSegundo()" se utiliza para obtener el número de ticks por segundo del sistema.
+        La función "ticksPorMilisegundo()" se utiliza para obtener el factor de conversión de ticks a milisegundos.
+
+Espero que esta información te sea útil. Si tienes alguna otra pregunta, no dudes en preguntar.

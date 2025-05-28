@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Inicial_bien_practica6_parte2.jsimg" timestamp="Mon Nov 21 21:06:21 CET 2022" xsi:noNamespaceSchemaLocation="Archive.xsd">
+    <sim disableStatisticStop="false" logDecimalSeparator="," logDelimiter=";" logPath="C:\Users\UO277906.AULASUO/JMT/" logReplaceMode="0" maxSamples="1000000" name="Inicial_bien_practica6_parte2.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+        <userClass customers="5" name="Peticiones" priority="0" referenceSource="Usuarios" type="closed"/>
+        <userClass name="Peticiones Internet" priority="0" referenceSource="Internet In" type="open"/>
+        <node name="Usuarios">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Delay">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Red">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>83010.28497430832</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>83010.28497430832</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+                        <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Usuarios</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.5</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>CPU</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.5</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Internet out</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.0</value>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+                        <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Usuarios</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.0</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>CPU</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.5</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Internet out</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.5</value>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="CPU">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="PSStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="PSServer">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>2</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>544.9591280653951</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>544.9591280653951</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+                        <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Red</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.07692</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Disco</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.92308</value>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+                        <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Red</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.07692</value>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Disco</value>
+                                </subParameter>
+                                <subParameter classPath="java.lang.Double" name="probability">
+                                    <value>0.92308</value>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Disco">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>2259.2692167791406</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>2259.2692167791406</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Internet In">
+            <section className="RandomSource">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <value>null</value>
+                    </subParameter>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>25.0</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Peticiones</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                    <refClass>Peticiones Internet</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Internet out">
+            <section className="JobSink"/>
+        </node>
+        <measure alpha="0.01" name="Red_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="Peticiones Internet" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="Peticiones Internet" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="Peticiones Internet" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="Red_Utilization" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Utilization" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Utilization" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="Red_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="Peticiones" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="Peticiones" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="Peticiones" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Red_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="Peticiones Internet" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="Peticiones Internet" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="Peticiones Internet" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Red_Residence Time" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Residence Time" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Residence Time" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="" type="Residence Time" verbose="false"/>
+        <measure alpha="0.01" name="Peticiones_System Throughput" nodeType="station" precision="0.03" referenceNode="" referenceUserClass="Peticiones" type="System Throughput" verbose="false"/>
+        <measure alpha="0.01" name="Peticiones Internet_System Throughput" nodeType="station" precision="0.03" referenceNode="" referenceUserClass="Peticiones Internet" type="System Throughput" verbose="false"/>
+        <measure alpha="0.01" name="System Throughput" nodeType="station" precision="0.03" referenceNode="" referenceUserClass="" type="System Throughput" verbose="false"/>
+        <measure alpha="0.01" name="Red_Peticiones_Utilization" nodeType="station" precision="0.03" referenceNode="Red" referenceUserClass="Peticiones" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="CPU_Peticiones_Utilization" nodeType="station" precision="0.03" referenceNode="CPU" referenceUserClass="Peticiones" type="Utilization" verbose="false"/>
+        <measure alpha="0.01" name="Disco_Peticiones_Utilization" nodeType="station" precision="0.03" referenceNode="Disco" referenceUserClass="Peticiones" type="Utilization" verbose="false"/>
+        <connection source="Usuarios" target="Red"/>
+        <connection source="Red" target="Usuarios"/>
+        <connection source="Red" target="CPU"/>
+        <connection source="Red" target="Internet out"/>
+        <connection source="CPU" target="Red"/>
+        <connection source="CPU" target="Disco"/>
+        <connection source="Disco" target="CPU"/>
+        <connection source="Internet In" target="Red"/>
+        <preload>
+            <stationPopulations stationName="Usuarios">
+                <classPopulation population="5" refClass="Peticiones"/>
+            </stationPopulations>
+        </preload>
+    </sim>
+    <jmodel xsi:noNamespaceSchemaLocation="JModelGUI.xsd">
+        <userClass color="#FF0000FF" name="Peticiones"/>
+        <userClass color="#FF00FF00" name="Peticiones Internet"/>
+        <station name="Usuarios">
+            <position rotate="false" x="124.0" y="131.0"/>
+        </station>
+        <station name="Red">
+            <position rotate="false" x="270.0" y="171.0"/>
+        </station>
+        <station name="CPU">
+            <position rotate="false" x="490.0" y="194.0"/>
+        </station>
+        <station name="Disco">
+            <position rotate="true" x="521.0" y="331.0"/>
+        </station>
+        <station name="Internet In">
+            <position rotate="false" x="160.0" y="24.0"/>
+        </station>
+        <station name="Internet out">
+            <position rotate="false" x="388.0" y="428.0"/>
+        </station>
+        <parametric classPath="jmt.gui.common.definitions.parametric.NumberOfCustomerParametricAnalysis" enabled="true">
+            <field name="Class" value="Peticiones"/>
+            <field name="Is single class" value="true"/>
+            <field name="Steps" value="10"/>
+            <field name="To" value="500.0"/>
+            <field name="Type" value="Number of customers"/>
+        </parametric>
+    </jmodel>
+    <results pollingInterval="0.0" xsi:noNamespaceSchemaLocation="Results.xsd">
+        <measure alpha="0.99" analyzedSamples="10" name="Red_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="Red" type="2">
+            <sample lowerBound="5.908718642042143E-4" meanValue="6.038292269725685E-4" upperBound="6.167865897409227E-4" validity="true"/>
+            <sample lowerBound="5.973466042331932E-4" meanValue="6.115753042072239E-4" upperBound="6.258040041812546E-4" validity="true"/>
+            <sample lowerBound="5.810125225740406E-4" meanValue="5.966857756989932E-4" upperBound="6.123590288239459E-4" validity="true"/>
+            <sample lowerBound="5.881396584732072E-4" meanValue="6.01219197225684E-4" upperBound="6.142987359781608E-4" validity="true"/>
+            <sample lowerBound="5.970696538692841E-4" meanValue="6.114502133149122E-4" upperBound="6.258307727605403E-4" validity="true"/>
+            <sample lowerBound="5.861154867779921E-4" meanValue="6.027225329030592E-4" upperBound="6.193295790281264E-4" validity="true"/>
+            <sample lowerBound="5.833739796574842E-4" meanValue="6.001712441349195E-4" upperBound="6.169685086123547E-4" validity="true"/>
+            <sample lowerBound="5.944699648825995E-4" meanValue="6.112222014943881E-4" upperBound="6.279744381061768E-4" validity="true"/>
+            <sample lowerBound="5.904356923873785E-4" meanValue="6.017349637818152E-4" upperBound="6.13034235176252E-4" validity="true"/>
+            <sample lowerBound="5.88176213260642E-4" meanValue="6.004352951351079E-4" upperBound="6.126943770095738E-4" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="CPU" type="2">
+            <sample lowerBound="0.2872956080724205" meanValue="0.3042140487164132" upperBound="0.32113248936040595" validity="false"/>
+            <sample lowerBound="0.2940931580404161" meanValue="0.3032990278936402" upperBound="0.31250489774686435" validity="false"/>
+            <sample lowerBound="0.29284551636465056" meanValue="0.30124426347342353" upperBound="0.3096430105821965" validity="true"/>
+            <sample lowerBound="0.2895506206110411" meanValue="0.29839912646235045" upperBound="0.3072476323136598" validity="true"/>
+            <sample lowerBound="0.2975238955366822" meanValue="0.3064626964996232" upperBound="0.31540149746256424" validity="true"/>
+            <sample lowerBound="0.27461214993243926" meanValue="0.2824944665748875" upperBound="0.2903767832173358" validity="true"/>
+            <sample lowerBound="0.29086914123602786" meanValue="0.29903999454668256" upperBound="0.30721084785733727" validity="true"/>
+            <sample lowerBound="0.2910495403933966" meanValue="0.29795455605874466" upperBound="0.3048595717240927" validity="true"/>
+            <sample lowerBound="0.30923327477959045" meanValue="0.3155410777034551" upperBound="0.3218488806273197" validity="true"/>
+            <sample lowerBound="0.28296030692568436" meanValue="0.2894740486994582" upperBound="0.29598779047323204" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_Peticiones Internet_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="Disco" type="2">
+            <sample lowerBound="0.12797293877404642" meanValue="0.13381238241533983" upperBound="0.13965182605663323" validity="false"/>
+            <sample lowerBound="0.12879741399628375" meanValue="0.13389426926208034" upperBound="0.13899112452787693" validity="false"/>
+            <sample lowerBound="0.1276923342720813" meanValue="0.13242067973830915" upperBound="0.137149025204537" validity="false"/>
+            <sample lowerBound="0.12904875672397562" meanValue="0.13343408224877215" upperBound="0.1378194077735687" validity="false"/>
+            <sample lowerBound="0.13171024712022206" meanValue="0.13503454984790442" upperBound="0.13835885257558678" validity="true"/>
+            <sample lowerBound="0.13231780075193839" meanValue="0.1349942067065913" upperBound="0.1376706126612442" validity="true"/>
+            <sample lowerBound="0.12671590755847098" meanValue="0.13040034054111616" upperBound="0.13408477352376133" validity="true"/>
+            <sample lowerBound="0.12891915881105134" meanValue="0.1322460013882465" upperBound="0.13557284396544164" validity="true"/>
+            <sample lowerBound="0.12841248757981039" meanValue="0.13117127788785227" upperBound="0.13393006819589415" validity="true"/>
+            <sample lowerBound="0.12963763847329152" meanValue="0.13343553795388122" upperBound="0.13723343743447092" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Red_All classes_Utilization" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Red" type="2">
+            <sample lowerBound="6.475723443495315E-4" meanValue="6.631667708516279E-4" upperBound="6.787611973537243E-4" validity="true"/>
+            <sample lowerBound="0.0012850271030805363" meanValue="0.0013200260506033025" upperBound="0.0013550249981260688" validity="true"/>
+            <sample lowerBound="0.0018245237618109758" meanValue="0.0018744240186510175" upperBound="0.0019243242754910593" validity="true"/>
+            <sample lowerBound="0.001998048991976933" meanValue="0.0020351569070215796" upperBound="0.002072264822066226" validity="true"/>
+            <sample lowerBound="0.001966913510368953" meanValue="0.002014005168529696" upperBound="0.002061096826690439" validity="true"/>
+            <sample lowerBound="0.0020249477651786154" meanValue="0.0020847295160001736" upperBound="0.002144511266821732" validity="true"/>
+            <sample lowerBound="0.0019887637912094163" meanValue="0.0020329694131176706" upperBound="0.002077175035025925" validity="true"/>
+            <sample lowerBound="0.001975362525095813" meanValue="0.0020169135090490555" upperBound="0.002058464493002298" validity="true"/>
+            <sample lowerBound="0.001992796092940546" meanValue="0.002030884382838786" upperBound="0.002068972672737026" validity="true"/>
+            <sample lowerBound="0.001987870941151383" meanValue="0.0020245132458266758" upperBound="0.0020611555505019685" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_All classes_Utilization" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="CPU" type="2">
+            <sample lowerBound="0.318944093209888" meanValue="0.3298528508704493" upperBound="0.3407616085310106" validity="false"/>
+            <sample lowerBound="0.6279664748605276" meanValue="0.6471463543665238" upperBound="0.66632623387252" validity="true"/>
+            <sample lowerBound="0.9110248930443168" meanValue="0.937387586377289" upperBound="0.9637502797102613" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+            <sample lowerBound="0.9874855732602297" meanValue="1.0" upperBound="1.0125144267397703" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_All classes_Utilization" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Disco" type="2">
+            <sample lowerBound="0.14062526337117562" meanValue="0.14711927679602832" upperBound="0.15361329022088102" validity="false"/>
+            <sample lowerBound="0.2808377648401364" meanValue="0.28890296937780996" upperBound="0.2969681739154835" validity="true"/>
+            <sample lowerBound="0.40191180928465553" meanValue="0.41392133701712674" upperBound="0.42593086474959796" validity="true"/>
+            <sample lowerBound="0.43309429617143025" meanValue="0.44380628156635227" upperBound="0.4545182669612743" validity="true"/>
+            <sample lowerBound="0.43265713400362094" meanValue="0.4442798475707794" upperBound="0.4559025611379378" validity="true"/>
+            <sample lowerBound="0.434414672879595" meanValue="0.4456816218529879" upperBound="0.45694857082638074" validity="true"/>
+            <sample lowerBound="0.4370023170906492" meanValue="0.44607654535434194" upperBound="0.4551507736180347" validity="true"/>
+            <sample lowerBound="0.4385733336837558" meanValue="0.4477086198688443" upperBound="0.4568439060539328" validity="true"/>
+            <sample lowerBound="0.4360974301138968" meanValue="0.4447307868903021" upperBound="0.4533641436667074" validity="true"/>
+            <sample lowerBound="0.43792775402514694" meanValue="0.44858629846972664" upperBound="0.45924484291430634" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Red_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="Red" type="5">
+            <sample lowerBound="2.3592248654283972E-5" meanValue="2.4107452179331384E-5" upperBound="2.4622655704378793E-5" validity="true"/>
+            <sample lowerBound="2.369045259491176E-5" meanValue="2.414340518031385E-5" upperBound="2.4596357765715937E-5" validity="true"/>
+            <sample lowerBound="2.3538654750330157E-5" meanValue="2.391247043417365E-5" upperBound="2.4286286118017138E-5" validity="true"/>
+            <sample lowerBound="2.3895582452844864E-5" meanValue="2.4342121603230457E-5" upperBound="2.4788660753616054E-5" validity="true"/>
+            <sample lowerBound="2.3545830062442255E-5" meanValue="2.390437021627136E-5" upperBound="2.4262910370100464E-5" validity="true"/>
+            <sample lowerBound="2.3594381978990364E-5" meanValue="2.4016366791259964E-5" upperBound="2.4438351603529568E-5" validity="true"/>
+            <sample lowerBound="2.3491534247648273E-5" meanValue="2.3869947732336465E-5" upperBound="2.4248361217024657E-5" validity="true"/>
+            <sample lowerBound="2.3564190367504096E-5" meanValue="2.3927727166848023E-5" upperBound="2.4291263966191954E-5" validity="true"/>
+            <sample lowerBound="2.3312575939184707E-5" meanValue="2.3666133798246557E-5" upperBound="2.4019691657308408E-5" validity="true"/>
+            <sample lowerBound="2.373680771174058E-5" meanValue="2.406390408837552E-5" upperBound="2.4391000465010464E-5" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="CPU" type="5">
+            <sample lowerBound="0.026205545315184334" meanValue="0.0266308344430796" upperBound="0.027056123570974866" validity="true"/>
+            <sample lowerBound="0.03827554878281476" meanValue="0.03934767765944556" upperBound="0.040419806536076366" validity="true"/>
+            <sample lowerBound="0.12037188142581325" meanValue="0.13793746879436095" upperBound="0.1555030561629087" validity="false"/>
+            <sample lowerBound="0.7955806780880532" meanValue="0.8468932955213936" upperBound="0.8982059129547341" validity="false"/>
+            <sample lowerBound="1.782403607759889" meanValue="1.8279240680511106" upperBound="1.8734445283423322" validity="true"/>
+            <sample lowerBound="2.296022636418592" meanValue="2.3581626250961643" upperBound="2.420302613773737" validity="true"/>
+            <sample lowerBound="2.977692775715245" meanValue="3.0532712622474527" upperBound="3.1288497487796607" validity="true"/>
+            <sample lowerBound="4.387326848689131" meanValue="4.477303615827617" upperBound="4.5672803829661035" validity="true"/>
+            <sample lowerBound="5.146879530494626" meanValue="5.263904275574728" upperBound="5.38092902065483" validity="true"/>
+            <sample lowerBound="5.664820029647818" meanValue="5.807338137252538" upperBound="5.9498562448572585" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_Peticiones_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="Disco" type="5">
+            <sample lowerBound="0.006042868945530651" meanValue="0.006178515146448556" upperBound="0.006314161347366462" validity="true"/>
+            <sample lowerBound="0.007116193668910592" meanValue="0.007334510830853132" upperBound="0.007552827992795673" validity="true"/>
+            <sample lowerBound="0.008723390623113069" meanValue="0.00891959275858891" upperBound="0.009115794894064751" validity="true"/>
+            <sample lowerBound="0.00916378494847381" meanValue="0.0094040355155469" upperBound="0.009644286082619993" validity="true"/>
+            <sample lowerBound="0.009213504038502176" meanValue="0.009376046194816601" upperBound="0.009538588351131024" validity="true"/>
+            <sample lowerBound="0.008843566854898104" meanValue="0.009005214101048476" upperBound="0.00916686134719885" validity="true"/>
+            <sample lowerBound="0.008195979955476752" meanValue="0.008421579925577842" upperBound="0.008647179895678932" validity="true"/>
+            <sample lowerBound="0.008796530776386301" meanValue="0.008988439655437473" upperBound="0.009180348534488644" validity="true"/>
+            <sample lowerBound="0.008860614827832586" meanValue="0.009064763627056795" upperBound="0.009268912426281004" validity="true"/>
+            <sample lowerBound="0.008837311740397945" meanValue="0.00898569259556657" upperBound="0.009134073450735197" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Red_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="Red" type="5">
+            <sample lowerBound="2.351168218538283E-5" meanValue="2.391797022685021E-5" upperBound="2.432425826831759E-5" validity="true"/>
+            <sample lowerBound="2.3961654655122727E-5" meanValue="2.4435776773963415E-5" upperBound="2.4909898892804102E-5" validity="true"/>
+            <sample lowerBound="2.3332449516394186E-5" meanValue="2.378907568849977E-5" upperBound="2.4245701860605353E-5" validity="true"/>
+            <sample lowerBound="2.3674845066266293E-5" meanValue="2.40946200088369E-5" upperBound="2.4514394951407512E-5" validity="true"/>
+            <sample lowerBound="2.4031596005374395E-5" meanValue="2.4356390111903968E-5" upperBound="2.4681184218433544E-5" validity="true"/>
+            <sample lowerBound="2.3687720489584903E-5" meanValue="2.410333990229729E-5" upperBound="2.4518959315009677E-5" validity="true"/>
+            <sample lowerBound="2.3503119198291982E-5" meanValue="2.3958780864648577E-5" upperBound="2.441444253100517E-5" validity="true"/>
+            <sample lowerBound="2.374641990931524E-5" meanValue="2.411350734981715E-5" upperBound="2.4480594790319064E-5" validity="true"/>
+            <sample lowerBound="2.3782045002503118E-5" meanValue="2.4091074501616045E-5" upperBound="2.440010400072897E-5" validity="true"/>
+            <sample lowerBound="2.3573940210880037E-5" meanValue="2.400307063216105E-5" upperBound="2.443220105344206E-5" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="CPU" type="5">
+            <sample lowerBound="0.02621998793265526" meanValue="0.026964267269998267" upperBound="0.027708546607341275" validity="true"/>
+            <sample lowerBound="0.03904743814323912" meanValue="0.040397606180359306" upperBound="0.0417477742174795" validity="false"/>
+            <sample lowerBound="0.1253740496272027" meanValue="0.1409463727836756" upperBound="0.15651869594014853" validity="false"/>
+            <sample lowerBound="0.8447052789834457" meanValue="0.8910951977943937" upperBound="0.9374851166053417" validity="false"/>
+            <sample lowerBound="1.7687654505477681" meanValue="1.807622088160164" upperBound="1.8464787257725597" validity="true"/>
+            <sample lowerBound="2.5934534106818607" meanValue="2.6686914033592757" upperBound="2.7439293960366906" validity="true"/>
+            <sample lowerBound="3.4424666377966364" meanValue="3.530631641493794" upperBound="3.6187966451909523" validity="true"/>
+            <sample lowerBound="4.480569290475095" meanValue="4.609475119776986" upperBound="4.738380949078877" validity="true"/>
+            <sample lowerBound="5.247179992453538" meanValue="5.351245192150584" upperBound="5.455310391847631" validity="true"/>
+            <sample lowerBound="5.67798714740563" meanValue="5.829876959735881" upperBound="5.981766772066131" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_Peticiones Internet_Residence Time" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="Disco" type="5">
+            <sample lowerBound="0.006290434366449857" meanValue="0.0064023061841908145" upperBound="0.006514178001931772" validity="true"/>
+            <sample lowerBound="0.007260776739164671" meanValue="0.007412006335184195" upperBound="0.007563235931203718" validity="true"/>
+            <sample lowerBound="0.008919291386526671" meanValue="0.00910973229513685" upperBound="0.00930017320374703" validity="true"/>
+            <sample lowerBound="0.00913056062770556" meanValue="0.009367169686235279" upperBound="0.009603778744764997" validity="true"/>
+            <sample lowerBound="0.009326275629999905" meanValue="0.009519074129782968" upperBound="0.009711872629566031" validity="true"/>
+            <sample lowerBound="0.008687612630897455" meanValue="0.008857751700867575" upperBound="0.009027890770837694" validity="true"/>
+            <sample lowerBound="0.009227694600903448" meanValue="0.009448877545010951" upperBound="0.009670060489118453" validity="true"/>
+            <sample lowerBound="0.009377518969544972" meanValue="0.009537289376305604" upperBound="0.009697059783066236" validity="true"/>
+            <sample lowerBound="0.009039805826604788" meanValue="0.009202035482976179" upperBound="0.009364265139347568" validity="true"/>
+            <sample lowerBound="0.008835385353020371" meanValue="0.00899174246187647" upperBound="0.009148099570732567" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Red_All classes_Residence Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Red" type="5">
+            <sample lowerBound="2.3679389525307353E-5" meanValue="2.401963176086363E-5" upperBound="2.435987399641991E-5" validity="true"/>
+            <sample lowerBound="2.374529188268413E-5" meanValue="2.418757676608604E-5" upperBound="2.462986164948795E-5" validity="true"/>
+            <sample lowerBound="2.340845636316736E-5" meanValue="2.3822453929310854E-5" upperBound="2.423645149545435E-5" validity="true"/>
+            <sample lowerBound="2.370855861347962E-5" meanValue="2.4221276838338458E-5" upperBound="2.4733995063197295E-5" validity="true"/>
+            <sample lowerBound="2.359299304584469E-5" meanValue="2.3975855992398393E-5" upperBound="2.4358718938952096E-5" validity="true"/>
+            <sample lowerBound="2.363685948951725E-5" meanValue="2.404481817117522E-5" upperBound="2.445277685283319E-5" validity="true"/>
+            <sample lowerBound="2.3517113174842496E-5" meanValue="2.3808945939332635E-5" upperBound="2.4100778703822774E-5" validity="true"/>
+            <sample lowerBound="2.356825718082587E-5" meanValue="2.3918577654283192E-5" upperBound="2.4268898127740516E-5" validity="true"/>
+            <sample lowerBound="2.3101147179433345E-5" meanValue="2.3528351625354053E-5" upperBound="2.3955556071274764E-5" validity="true"/>
+            <sample lowerBound="2.3569055579468644E-5" meanValue="2.3978225463719573E-5" upperBound="2.4387395347970502E-5" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_All classes_Residence Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="CPU" type="5">
+            <sample lowerBound="0.026670484868696543" meanValue="0.02729043335424487" upperBound="0.027910381839793195" validity="true"/>
+            <sample lowerBound="0.03800667724968556" meanValue="0.04000980167955907" upperBound="0.04201292610943259" validity="false"/>
+            <sample lowerBound="0.12123541508067749" meanValue="0.14102282100584268" upperBound="0.16081022693100788" validity="false"/>
+            <sample lowerBound="0.8159341839665365" meanValue="0.8675674829456899" upperBound="0.9192007819248431" validity="false"/>
+            <sample lowerBound="1.762371782987696" meanValue="1.813242254284599" upperBound="1.8641127255815022" validity="true"/>
+            <sample lowerBound="2.3286941370646392" meanValue="2.392166762766149" upperBound="2.4556393884676586" validity="true"/>
+            <sample lowerBound="3.1935382504054934" meanValue="3.284511857933454" upperBound="3.3754854654614146" validity="true"/>
+            <sample lowerBound="4.273263947250331" meanValue="4.392413622139199" upperBound="4.511563297028069" validity="true"/>
+            <sample lowerBound="5.034711666434609" meanValue="5.179396921705761" upperBound="5.324082176976913" validity="true"/>
+            <sample lowerBound="5.45438292414274" meanValue="5.569899851181877" upperBound="5.685416778221014" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_All classes_Residence Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Disco" type="5">
+            <sample lowerBound="0.006184100652842638" meanValue="0.006363660752896886" upperBound="0.006543220852951133" validity="true"/>
+            <sample lowerBound="0.007195729007885035" meanValue="0.007382392694273727" upperBound="0.0075690563806624185" validity="true"/>
+            <sample lowerBound="0.008695571153783692" meanValue="0.008917739798097507" upperBound="0.009139908442411323" validity="true"/>
+            <sample lowerBound="0.009114793904570559" meanValue="0.009338710471672255" upperBound="0.009562627038773953" validity="true"/>
+            <sample lowerBound="0.009165266471566942" meanValue="0.009397664431203517" upperBound="0.009630062390840093" validity="true"/>
+            <sample lowerBound="0.0086488187201421" meanValue="0.00886968001518076" upperBound="0.009090541310219422" validity="true"/>
+            <sample lowerBound="0.008118652897210343" meanValue="0.008364887155206956" upperBound="0.00861112141320357" validity="true"/>
+            <sample lowerBound="0.008757977710471373" meanValue="0.008962707070634962" upperBound="0.00916743643079855" validity="true"/>
+            <sample lowerBound="0.008631673293231468" meanValue="0.00888065886522124" upperBound="0.009129644437211011" validity="true"/>
+            <sample lowerBound="0.008364986103928778" meanValue="0.008620576613519148" upperBound="0.008876167123109518" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Network_Peticiones_System Throughput" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="Network" type="9">
+            <sample lowerBound="2.424724848369036" meanValue="2.4642649488014636" upperBound="2.5051159913263716" validity="true"/>
+            <sample lowerBound="28.79206016033306" meanValue="29.31245486645587" upperBound="29.852007315556307" validity="true"/>
+            <sample lowerBound="53.05379572596784" meanValue="53.925673046315055" upperBound="54.82668574860921" validity="true"/>
+            <sample lowerBound="57.04790321481481" meanValue="58.576178479683925" upperBound="60.18859066590692" validity="true"/>
+            <sample lowerBound="57.2520843151308" meanValue="58.6809325636626" upperBound="60.18292624270641" validity="true"/>
+            <sample lowerBound="57.1683883652208" meanValue="58.78325098799636" upperBound="60.491997167417004" validity="true"/>
+            <sample lowerBound="58.31422854445952" meanValue="59.23838379111403" upperBound="60.19230247492212" validity="true"/>
+            <sample lowerBound="56.81078056104351" meanValue="58.33069625290373" upperBound="59.9341752500524" validity="true"/>
+            <sample lowerBound="56.765138299220354" meanValue="58.21110845715362" upperBound="59.73267012406597" validity="true"/>
+            <sample lowerBound="57.324125237982486" meanValue="58.844227376479026" upperBound="60.4471447094049" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Network_Peticiones Internet_System Throughput" nodeType="station" precision="0.03" referenceClass="Peticiones Internet" referenceStation="Network" type="9">
+            <sample lowerBound="24.747868782986504" meanValue="25.09084809529392" upperBound="25.443467673238448" validity="true"/>
+            <sample lowerBound="24.546724810423424" meanValue="24.950187567540823" upperBound="25.36713501417709" validity="true"/>
+            <sample lowerBound="24.67995757934609" meanValue="25.078879904009074" upperBound="25.49091032060021" validity="true"/>
+            <sample lowerBound="24.687496303165048" meanValue="25.067683199885224" upperBound="25.459762986437077" validity="true"/>
+            <sample lowerBound="24.59518859564764" meanValue="24.95781966937921" upperBound="25.331304017307424" validity="true"/>
+            <sample lowerBound="24.571360585831112" meanValue="24.95998121279563" upperBound="25.36109223513794" validity="true"/>
+            <sample lowerBound="24.594487901469225" meanValue="25.015552152825045" upperBound="25.451285001094238" validity="true"/>
+            <sample lowerBound="24.5582930919513" meanValue="24.977625959354413" upperBound="25.4115278100152" validity="true"/>
+            <sample lowerBound="24.552758852155474" meanValue="24.917311077043067" upperBound="25.29285198965922" validity="true"/>
+            <sample lowerBound="24.63304768357685" meanValue="24.991346885437014" upperBound="25.360223195286604" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Network_All classes_System Throughput" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Network" type="9">
+            <sample lowerBound="27.168287244175847" meanValue="27.556054694465438" upperBound="27.955051470896667" validity="true"/>
+            <sample lowerBound="53.43477447015634" meanValue="54.421658670789455" upperBound="55.445682227093656" validity="true"/>
+            <sample lowerBound="77.88516442865573" meanValue="78.95244893612768" upperBound="80.04939050315551" validity="true"/>
+            <sample lowerBound="82.38117289998453" meanValue="84.4427526580438" upperBound="86.61016241181358" validity="true"/>
+            <sample lowerBound="82.15428288428151" meanValue="84.01959842301812" upperBound="85.97158594606555" validity="true"/>
+            <sample lowerBound="82.10274690428324" meanValue="84.25791490367924" upperBound="86.52927776899222" validity="true"/>
+            <sample lowerBound="81.6380902065322" meanValue="83.99566759316555" upperBound="86.49346029718947" validity="true"/>
+            <sample lowerBound="81.58337195084471" meanValue="83.89248712879782" upperBound="86.33612297265461" validity="true"/>
+            <sample lowerBound="82.47372170336055" meanValue="84.04690865507543" upperBound="85.68127980520491" validity="true"/>
+            <sample lowerBound="82.22942170492367" meanValue="84.04746011965452" upperBound="85.94770738448084" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Red_Peticiones_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="Red" type="2">
+            <sample lowerBound="0.0" meanValue="5.897355292816046E-5" upperBound="8.075450908625521E-5" validity="true"/>
+            <sample lowerBound="6.888643548123035E-4" meanValue="7.0374288072821E-4" upperBound="7.186214066441165E-4" validity="true"/>
+            <sample lowerBound="0.001244025978469344" meanValue="0.0012772082555330352" upperBound="0.0013103905325967265" validity="true"/>
+            <sample lowerBound="0.0013857019716479416" meanValue="0.0014220155182581946" upperBound="0.0014583290648684476" validity="true"/>
+            <sample lowerBound="0.0013637082864409683" meanValue="0.001396647987669179" upperBound="0.0014295876888973898" validity="true"/>
+            <sample lowerBound="0.0014066799854061116" meanValue="0.001441351840847634" upperBound="0.0014760236962891562" validity="true"/>
+            <sample lowerBound="0.0013799446223138965" meanValue="0.0014222014504811573" upperBound="0.001464458278648418" validity="true"/>
+            <sample lowerBound="0.0013652178867555715" meanValue="0.0014045598255430286" upperBound="0.0014439017643304857" validity="true"/>
+            <sample lowerBound="0.001378996517762252" meanValue="0.0014111686165439847" upperBound="0.0014433407153257173" validity="true"/>
+            <sample lowerBound="0.001386125893528679" meanValue="0.0014284695747162452" upperBound="0.0014708132559038114" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="CPU_Peticiones_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="CPU" type="2">
+            <sample lowerBound="0.02757812947967258" meanValue="0.029430322849426444" upperBound="0.03128251621918031" validity="false"/>
+            <sample lowerBound="0.3392666545933235" meanValue="0.35048929435509524" upperBound="0.361711934116867" validity="false"/>
+            <sample lowerBound="0.617340067115259" meanValue="0.6350656943527668" upperBound="0.6527913215902746" validity="true"/>
+            <sample lowerBound="0.7076327707257902" meanValue="0.7250118474302392" upperBound="0.7423909241346881" validity="true"/>
+            <sample lowerBound="0.6653672180849989" meanValue="0.680449618596057" upperBound="0.6955320191071152" validity="true"/>
+            <sample lowerBound="0.7091763535823483" meanValue="0.7194620590785721" upperBound="0.7297477645747958" validity="true"/>
+            <sample lowerBound="0.7086268447273777" meanValue="0.7200876197688657" upperBound="0.7315483948103537" validity="true"/>
+            <sample lowerBound="0.6763734176607092" meanValue="0.6877465785886209" upperBound="0.6991197395165325" validity="true"/>
+            <sample lowerBound="0.6989653995628672" meanValue="0.7080781996649499" upperBound="0.7171909997670326" validity="true"/>
+            <sample lowerBound="0.6860834315791656" meanValue="0.6978101257076996" upperBound="0.7095368198362336" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="10" name="Disco_Peticiones_Utilization" nodeType="station" precision="0.03" referenceClass="Peticiones" referenceStation="Disco" type="2">
+            <sample lowerBound="0.01252914507118288" meanValue="0.013132271790606812" upperBound="0.013735398510030744" validity="false"/>
+            <sample lowerBound="0.15054995662159276" meanValue="0.15530692846628683" upperBound="0.1600639003109809" validity="false"/>
+            <sample lowerBound="0.27752151946056347" meanValue="0.28549287994431216" upperBound="0.29346424042806085" validity="true"/>
+            <sample lowerBound="0.3053478827020285" meanValue="0.3139108324475376" upperBound="0.3224737821930467" validity="true"/>
+            <sample lowerBound="0.30001196958476434" meanValue="0.30705572544591225" upperBound="0.31409948130706017" validity="true"/>
+            <sample lowerBound="0.3158303214576497" meanValue="0.32280593085125286" upperBound="0.329781540244856" validity="true"/>
+            <sample lowerBound="0.30993244980575085" meanValue="0.31918649053264214" upperBound="0.32844053125953343" validity="true"/>
+            <sample lowerBound="0.30109214268107937" meanValue="0.3070991672791257" upperBound="0.313106191877172" validity="true"/>
+            <sample lowerBound="0.31515132895845743" meanValue="0.3217364682567792" upperBound="0.328321607555101" validity="true"/>
+            <sample lowerBound="0.3130118272281455" meanValue="0.31974146980598095" upperBound="0.3264711123838164" validity="true"/>
+        </measure>
+    </results>
+</archive>

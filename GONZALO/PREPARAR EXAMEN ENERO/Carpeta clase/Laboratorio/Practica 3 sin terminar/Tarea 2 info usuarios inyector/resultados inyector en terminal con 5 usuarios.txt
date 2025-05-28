@@ -1,0 +1,9 @@
+Parametros del experimento:
+Usuarios: 5; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transito
+rio (seg): 60; Medicion (seg): 1200
+Resultados:
+N. Pet: 2685
+Seg.Med: 1200
+Tpo.Res1(mseg) : 211.348328
+Tpo.Res2(mseg) : 211.347809
+Product. (pet/seg): 2.237500

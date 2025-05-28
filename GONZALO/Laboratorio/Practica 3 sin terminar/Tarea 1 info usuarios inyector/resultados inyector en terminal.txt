@@ -1,0 +1,123 @@
+Parametros del experimento:
+Usuarios: 5; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transito
+rio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 691
+Seg.Med: 300
+Tpo.Res1(mseg) : 40.134369
+Tpo.Res2(mseg) : 40.135239
+Product. (pet/seg): 2.303333
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 50 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 50; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transit
+orio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 7254
+Seg.Med: 300
+Tpo.Res1(mseg) : 42.580471
+Tpo.Res2(mseg) : 42.580494
+Product. (pet/seg): 24.180000
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 150 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 150; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 21271
+Seg.Med: 300
+Tpo.Res1(mseg) : 94.775894
+Tpo.Res2(mseg) : 94.775902
+Product. (pet/seg): 70.903336
+
+C:\Users\CES\Desktop\CES\Practica 3>
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 250 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 250; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 24802
+Seg.Med: 300
+Tpo.Res1(mseg) : 1001.363220
+Tpo.Res2(mseg) : 1001.363220
+Product. (pet/seg): 82.673332
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 300 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 300; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 24881
+Seg.Med: 300
+Tpo.Res1(mseg) : 1588.787476
+Tpo.Res2(mseg) : 1588.786987
+Product. (pet/seg): 82.936668
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 125 2 192.168.203.244 60 300
+Error en el recv: Error en el recv: 10054
+10054Error en el recv: 10053
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 125 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 125; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 17903
+Seg.Med: 300
+Tpo.Res1(mseg) : 67.812912
+Tpo.Res2(mseg) : 67.813126
+Product. (pet/seg): 59.676666
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 200 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 200; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 24988
+Seg.Med: 300
+Tpo.Res1(mseg) : 388.242126
+Tpo.Res2(mseg) : 388.242157
+Product. (pet/seg): 83.293335
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 150 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 150; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 21308
+Seg.Med: 300
+Tpo.Res1(mseg) : 92.027557
+Tpo.Res2(mseg) : 92.027458
+Product. (pet/seg): 71.026665
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 250 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 250; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 24856
+Seg.Med: 300
+Tpo.Res1(mseg) : 994.407166
+Tpo.Res2(mseg) : 994.407654
+Product. (pet/seg): 82.853333
+
+C:\Users\CES\Desktop\CES\Practica 3>inyector3.exe 500 2 192.168.203.244 60 300
+
+Parametros del experimento:
+Usuarios: 500; Tpo. Reflex (seg); 2.000000; IP servidor: 192.168.203.244; Transi
+torio (seg): 60; Medicion (seg): 300
+Resultados:
+N. Pet: 24952
+Seg.Med: 300
+Tpo.Res1(mseg) : 3926.179443
+Tpo.Res2(mseg) : 3926.182129
+Product. (pet/seg): 83.173332
+
+C:\Users\CES\Desktop\CES\Practica 3>

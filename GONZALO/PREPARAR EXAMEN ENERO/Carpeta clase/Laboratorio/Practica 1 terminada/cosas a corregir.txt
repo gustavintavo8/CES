@@ -1,0 +1,5 @@
+control de entradas
+titulos mas pequeños
+la tarjeta de red está en gibabits/s, por lo que
+% Utilización = (850000/1000000000)x100 = 0,085
+los 850000 hay que pasarlos a bits multiplicando por 8

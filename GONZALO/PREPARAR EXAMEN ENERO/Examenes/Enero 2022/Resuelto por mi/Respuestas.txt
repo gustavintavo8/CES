@@ -1,0 +1,54 @@
+(0,25) ¿Podría el propietario de servidor comprometerse a un acuerdo de nivel de servicio (SLA) en
+el que el 95 percentil de las peticiones se completaran en menos de 1,25 segundos? Y si se tomara
+como referencia el valor promedio, ¿sería posible garantizar en dicho caso el SLA? Justifica
+numéricamente las respuestas
+No, ya que ambos tiempos son mayores a 1,25 segundos.
+
+(0,5) ¿Cuál es el recurso que presenta una mayor utilización? Justifica numéricamente la
+respuesta.
+A la saturación,  ya que el tiempo e respuesta es mucho mayor.
+
+(0,5) ¿Cuál es el recurso que presenta una mayor utilización? Justifica numéricamente la
+respuesta.
+La CPU con un 29,93%
+
+¿Cuál es el factor que más influye? ¿Es posible descartar alguno de los factores? Justificar
+numéricamente las respuestas en cada caso
+El A que es el mas alto
+No porque individualmente cada uno de ellos tiene mas de un 5% de efecto
+No podriamos descartar ninguno que tuviera mas de 5% individual o en un efecto suyo, es decir,
+Si AB tuviera mas de 5%, no podrias descartar ni A ni B
+
+(0,25) Tomando un 5% como límite de representatividad, ¿es el error cometido significativo?
+Justificar numéricamente.
+
+No, el error es 4,7 es inferior al 5% por lo cual el error no es sgnificativo.
+
+_____________________________________________________________________________________________________
+PARTE 2
+_____________________________________________________________________________________________________
+(0,5) ¿Cuál es el número de usuarios del sistema que se podría considerar como punto nominal?
+Añade la representación gráfica que necesites, su presentación cuenta
+225
+
+
+(0,50) Resuelve el modelo y responde, ¿cuáles son los valores de las métricas de rendimiento del
+sistema? Indica las unidades se hace con el MVA SOLve
+Tpo respuesta = suma de residence time de cpu disco y red
+Productividad = 76.27752963788602 (Througput usuarios)
+Uso CPU = 50,85% porque hay 4 nucleos, acordarse de la formula
+
+(0,50) Con los índices de prestaciones que has introducido, simula el sistema con el
+comportamiento por defecto y obtén los valores para las siguientes métricas de rendimiento. Indica
+las unidades cuando proceda.
+
+Ponemos los índicdes de performance en el JSIM  y simulamos con el boton verde
+Los datos son los de average value
+El tiempo de respuesta del sistema e sla suma de residence times en segundos.
+_____________________________________________________________________________________________________
+PARTE 3
+_____________________________________________________________________________________________________
+Para calcular el MTTF del RAID en el dependtool, usamos la formula de RAID 0: No redundante
+MTTF array = MTTF Disco / Nº discos
+MTTF array = 600000 / 3 
+MTTF array = 200000

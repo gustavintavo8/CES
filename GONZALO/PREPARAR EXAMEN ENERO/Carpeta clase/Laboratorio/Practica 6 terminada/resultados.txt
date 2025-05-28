@@ -1,0 +1,7 @@
+61440 muestras analizadas (el mayor)
+Analyzed samnples en System response time : 71680. Nº de muestras necesarias para obtener el valor con un error del 3%
+
+Con el 1% de error, analyzed samples=184320
+Con 15% de error, analyzed samples = 61440
+
+Cuanto menos error permito, mas muestras necesito

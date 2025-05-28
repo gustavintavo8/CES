@@ -1,0 +1,12 @@
+﻿  Source.cpp
+Source.obj : error LNK2019: unresolved external symbol _closesocket@4 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _connect@12 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _htons@4 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _inet_addr@4 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _recv@16 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _send@16 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _socket@12 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+Source.obj : error LNK2019: unresolved external symbol _WSAStartup@8 referenced in function "int __cdecl Ini_sockets(void)" (?Ini_sockets@@YAHXZ)
+Source.obj : error LNK2019: unresolved external symbol _WSACleanup@0 referenced in function "void __cdecl Fin_sockets(void)" (?Fin_sockets@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol _WSAGetLastError@0 referenced in function "unsigned long __stdcall Usuario(void *)" (?Usuario@@YGKPAX@Z)
+C:\Users\CES\Desktop\CES\Practica 3\Inyector Practica 3\Debug\Inyector Practica 3.exe : fatal error LNK1120: 10 unresolved externals

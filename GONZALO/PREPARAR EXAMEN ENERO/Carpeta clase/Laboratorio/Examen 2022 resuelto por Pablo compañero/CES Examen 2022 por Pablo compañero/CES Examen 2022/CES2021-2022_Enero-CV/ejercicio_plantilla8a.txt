@@ -1,0 +1,25 @@
+plantilla 8a -> usuarios nuevos 1500
+tser cpu - disco y red ya conocidos
+
+tres esperado 0,06
+t ref 2,2
+x nueva ya sale
+u max 0,8
+vcpu 6
+v red 2
+vdisco 5
+ts cpu 0,00301
+ts red 1,64 e-05
+ts disco 0.000258189
+ip cpu 9,6
+ip red 1000
+ip disco 530
+cores cpu nueva 20
+cores cpu base 2
+
+ipn cpu 81,5 intel xeon silver 4309y
+ipn red 100 misma
+ipn disco 1050 seagate nytro 3131 (este grande en vez de 2 pequeños por restriccion de usar los minimos componentes posibles)
+ts cpu 0.0014220
+ts red 1.6424e-05
+ts disco 0.0001303

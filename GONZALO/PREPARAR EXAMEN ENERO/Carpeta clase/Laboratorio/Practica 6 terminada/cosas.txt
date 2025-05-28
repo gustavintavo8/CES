@@ -1,0 +1,23 @@
+Añadir una clase Peticiones cerrada de population 5
+En Red poner  en Service section SRed
+En routing section cambar a probabilidad y 50% cada una usuarios y cpu
+
+En CPU en queue section station quee policy : Procesor sharing
+En service section number of servers 2
+En time distribution media dle timepo de servicio de cpu
+En routing section, probabilidad de ir a red y disco que calculamos en el excel.
+En disco number of sevrers =1, en service time distribution la media es el uso de disco, SDisco
+
+
+Guardamos el JVA como inicial, es el que hay que entregar.
+Nos vamos al What if, y le dams a solve y los cargamos en el excel
+Number of customers
+Desde 5 hasta tu maximo
+Saltos de 40
+Abajo 5 y 10
+
+Entregar junto al JSIM, el excel hecho con las Vs, probabilidades y 5 gráficas iniciales.
+Una vez tenemos todo eso, hacemos unacopia del excel con las graficas y todo, y hacemos lo de la practica anterior,
+ajustar el modelo.
+Calculos razones de visita, probabilidades, tiempo de servicio.
+Y la gráfica de demandas
